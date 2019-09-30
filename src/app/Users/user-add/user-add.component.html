@@ -1,0 +1,33 @@
+<app-alerts></app-alerts>
+<form class="emp-form" #usrform="ngForm"
+novalidate (ngSubmit)="onSubmit(usrform)">
+<div class="form-row">
+<div class="form-group col-md-6">
+<input class="form-control" name="FirstName"  required
+#FirstName="ngModel" [(ngModel)] = "projectsvc.selectedUser.FirstName" 
+placeholder="First Name"/>
+</div>
+<div class="form-group col-md-6">
+    <input class="form-control" name="LastName"
+    #LastName="ngModel" [(ngModel)] = "projectsvc.selectedUser.LastName" 
+    placeholder="Last Name"/>
+</div>
+</div>
+<div class="form-group">
+    <input class="form-control" name="EmployeeID" 
+    #EmployeeID="ngModel" type="text" required
+     [(ngModel)] = "projectsvc.selectedUser.EmployeeID" 
+    placeholder="Employee ID"/>
+</div>
+<div class="form-row">
+<div class="form-group col-md-8">
+<button type="button" class="btn btn-lg btn-block btn-info" 
+(click)="onSubmit(usrform)"
+[disabled]="!usrform.valid">Submit</button>
+</div>
+<div class="form-group col-md-4">
+    <button type="button" 
+    class="btn btn-lg btn-block btn-secondary" (click)="resetForm(usrform)">Reset</button>
+  </div>
+</div>
+</form>

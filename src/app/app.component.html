@@ -1,0 +1,38 @@
+<div>
+  <span class="center" ><h2>Project Manager</h2> </span>
+  <br/>
+  <div id="exTab1" class="container">	
+      <ul  class="nav nav-pills fntCls">
+            <li class="active">
+              <a  href="#1a" data-toggle="tab">Add Project</a>
+            </li>
+            <li><a href="#2a" data-toggle="tab">Add User</a>
+            </li>
+            <li><a href="#3a" data-toggle="tab">Add Task</a>
+            </li>
+            <li><a href="#4a" data-toggle="tab">View Task</a>
+            </li>
+          </ul>
+  
+</div>
+<div class="tab-content clearfix">
+    <div class="tab-pane active" id="1a">
+        <h3>Project Operations</h3>
+        <br/><br/>
+      <app-project-main></app-project-main>
+    </div>
+    <div class="tab-pane" id="2a">
+      <h3>User Operations</h3>
+      <br/><br/>
+      <app-users-main></app-users-main>
+    </div>
+    <div class="tab-pane" id="3a">
+        <h3>Task Operations</h3>
+        <br/><br/>
+        <app-task-add></app-task-add>
+    </div>
+    <div class="tab-pane" id="4a">
+        <h3>Task Operations</h3>
+        <br/><br/>
+        <app-task-main></app-task-main>
+    </div>

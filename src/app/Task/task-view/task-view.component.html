@@ -1,0 +1,59 @@
+<app-alerts></app-alerts>
+<table class="table table-hover">
+<tr>
+<td>
+<input class="form-control" name="TaskTitle" 
+        #TaskTitle="ngModel" 
+        [(ngModel)] = "task.TaskTitle" 
+        [disabled]="!task.editmode"
+        placeholder="Task Title"
+        title="Task Title"/></td>
+<td><p-autoComplete id="ParentTaskList"
+  [suggestions]="parenttaskresults" 
+  (completeMethod)="parenttasksearch($event)" 
+  name="ParentTask" title="Parent Task Title" 
+  value="Parent Task Title.."
+  title="Parent Task Title.."
+  (onselect)="onParentTaskSelected($event)" 
+  [(ngModel)] = "task.ParentTaskTitle"
+  [disabled]="!task.editmode">
+</p-autoComplete></td>
+<td><input class="form-control" style="width:50px"   
+  #Priority="ngModel" min="0" max="30" type="number"
+   [(ngModel)] = "task.Priority"
+   name="Priority"  placeholder="Priority"
+   title="Priority.."
+   [disabled]="!task.editmode" /></td>
+   <td><input class="form-control" name="StartDate" 
+    type="datetime" 
+    #StartDate="ngModel" 
+    [(ngModel)] = "task.StartDate" 
+    placeholder="Start Date" 
+    [disabled]="!task.editmode"/></td>
+     <td><input class="form-control" name="EndDate" 
+      type="datetime" 
+      #StartDate="ngModel" 
+      [(ngModel)] = "task.EndDate" 
+      placeholder="End Date" 
+      [disabled]="!task.editmode"/></td>
+<td>
+<button type="button" class="btn btn-primary"
+(click)="enableControls(task)" 
+[disabled]="task.Completed">Edit</button>
+</td>
+<td>
+<button type="button" class="btn btn-primary"
+(click)="SaveChanges(task)" [disabled]="!task.editmode">Save Changes</button>
+</td>
+  <td>
+  <button type="button" class="btn btn-primary"
+  (click)="Cancel()" [disabled]="!task.editmode">Cancel</button>
+  </td>
+  <td>
+      <button type="button" class="btn btn-primary"
+      (click)="EndTaskClick(task)"
+      [disabled]="task.Completed">
+      End Task</button>
+      </td>
+  </tr>
+  </table>

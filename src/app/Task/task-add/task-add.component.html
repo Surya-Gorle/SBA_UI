@@ -1,0 +1,120 @@
+<app-alerts></app-alerts>
+<form class="emp-form" #taskform="ngForm" (ngSubmit)="onSubmit(taskform)">
+    <div class="form-row">
+        <div class="form-group col-md-11">
+              <p-autoComplete id="ProjectList"
+              [suggestions]="projectresults" 
+              (completeMethod)="projectsearch($event)" 
+              name="ProjectTitle"
+              (onselect)="onProjectSelected($event)" 
+              [(ngModel)] = "projectsvc.selectedTask.ProjectTitle"
+              [disabled]="projectsvc.selectedTask.editmode"
+              placeholder="Project Title..">
+            </p-autoComplete>
+              
+                  </div>
+                  </div>
+                  <div class="form-row">
+    <div class="form-group col-md-11">
+        <input class="form-control" name="TaskTitle" 
+        #TaskTitle="ngModel" 
+        [(ngModel)] = "projectsvc.selectedTask.TaskTitle" 
+        placeholder="Task Title" required/>
+    </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-11">
+            <input class="form-control" name="chkSet" 
+            type="checkbox"
+   (change)="EditForm($event)" 
+   title="Parent Task"
+   [(ngModel)]="projectsvc.selectedTask.editmode"
+   >
+   Parent Task
+        </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-8">
+              <input type="range" name="PriorityInput"
+              min="0" max="30" value="0"
+              oninput="this.form.Priority.value=this.value" 
+              class="custom-range"
+              [(ngModel)] = "projectsvc.selectedTask.Priority"
+              [disabled]="projectsvc.selectedTask.editmode"/>
+              </div>
+              <div class="form-group col-md-2">
+                  Priority
+                   </div>
+              <div class="form-group col-md-2">
+         <input class="form-control"   
+              #Priority="ngModel" min="0" max="30" type="number"
+               [(ngModel)] = "projectsvc.selectedTask.Priority"
+               name="Priority"
+               oninput="this.form.PriorityInput.value=this.value;" 
+               [disabled]="projectsvc.selectedTask.editmode" />
+               </div>
+               
+              </div>
+        
+        <div class="form-row">
+            <div class="form-group col-md-11">
+                  <p-autoComplete id="ParentTaskList"
+                  [suggestions]="parenttaskresults" 
+                  (completeMethod)="parenttasksearch($event)" 
+                  name="ParentTask"
+                  (onselect)="onParentTaskSelected($event)" 
+                  [(ngModel)] = "projectsvc.selectedTask.ParentTaskTitle"
+                  [disabled]="projectsvc.selectedTask.editmode"
+                  placeholder="Parent Task Title..">
+                  
+                </p-autoComplete>
+                  
+                      </div>
+                      </div>
+  <div class="form-row">
+      <div class="form-group col-md-6">
+          Start Date
+            <input class="form-control" name="StartDate" type="datetime" 
+            #StartDate="ngModel" 
+            [(ngModel)] = "projectsvc.selectedTask.StartDate" 
+            placeholder="Start Date" 
+            [disabled]="projectsvc.selectedTask.editmode"/>
+          </div>
+          <div class="form-group col-md-6">
+            End Date
+              <input class="form-control" name="EndDate" type="datetime" 
+            #EndDate="ngModel" 
+            [(ngModel)] = "projectsvc.selectedTask.EndDate" 
+            placeholder="End Date"
+            [disabled]="projectsvc.selectedTask.editmode"/>
+            </div>
+  </div>  
+  <div class="form-row">
+      <div class="form-group col-md-11">
+            <p-autoComplete id="UsersList"
+            [suggestions]="userresults" 
+            (completeMethod)="usersearch($event)" 
+            name="UserFirstName"
+            (onselect)="onUserSelected($event)" 
+            [(ngModel)] = "projectsvc.selectedTask.UserFirstName"
+            [disabled]="projectsvc.selectedTask.editmode"
+            placeholder="User First Name.."
+            title="User First Name..">
+          </p-autoComplete>
+            
+                </div>
+                </div>                    
+    <div class="form-row">
+    <div class="form-group col-md-8">
+    <button type="button" class="btn btn-lg btn-block btn-info" 
+    (click)="onSubmit(projectsvc.selectedTask,taskform)"
+    [disabled]="!taskform.valid">Add</button>
+    </div>
+    <div class="form-group col-md-4">
+        <button type="button" 
+        class="btn btn-lg btn-block btn-secondary" 
+        (click)="resetForm(taskform)">Reset</button>
+      </div>
+    </div>
+    </form>
+    

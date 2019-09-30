@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+#bodyID {
+        background: url('./assets/ProjectManager.jpeg') no-repeat left center fixed;
+        -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+        border-color: black;
+        border: thick;
+        border-radius: 4%;
+        
+      }
+      .bdyClass{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-weight:200;
+        font-size: small;
+      }
+     
+  

@@ -1,0 +1,36 @@
+<app-alerts></app-alerts>
+<table class="table table-hover">
+<tr>
+<td><input class="form-control" name="FirstName" 
+#FirstName="ngModel" [(ngModel)] = "usr.FirstName" 
+placeholder="First Name" [disabled]="!usr.editmode"
+title="First Name" required/></td>
+<td><input class="form-control" name="LastName" 
+#LastName="ngModel" [(ngModel)] = "usr.LastName" 
+placeholder="Last Name" [disabled]="!usr.editmode"
+title="Last Name" required/></td>
+<td><input class="form-control" name="Employee ID" 
+#LastName="ngModel" [(ngModel)] = "usr.EmployeeID" 
+placeholder="Employee ID" [disabled]="!usr.editmode"
+title="Employee ID" required/></td>
+<td><a class="btn btn-info btn-lg" (click)="enableControls(usr)">
+<span class="glyphicon glyphicon-edit" 
+title="Edit"></span>    
+</a></td>
+<td>
+<a class="btn btn-info btn-lg" (click)="DeleteUser(usr.UserID)" >
+<span class="glyphicon glyphicon-trash"
+title="Delete"></span>
+</a>
+</td>
+<td>
+<button type="button" class="btn btn-primary"
+(click)="SaveChanges(usr)"
+ [disabled]="!usr.editmode">Save Changes</button>
+</td>
+  <td>
+  <button type="button" class="btn btn-primary"
+  (click)="Cancel()" [disabled]="!usr.editmode">Cancel</button>
+  </td>
+  </tr>
+  </table>
